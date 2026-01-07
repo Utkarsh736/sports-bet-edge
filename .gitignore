@@ -1,0 +1,13 @@
+# UV/Venv
+.venv/
+uv.lock
+
+# Data/Models
+data/raw/
+*.pkl
+*.joblib
+
+# IDE
+.vscode/
+.idea/
+

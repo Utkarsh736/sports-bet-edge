@@ -1,0 +1,22 @@
+[project]
+name = "sports-bet-edge"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "click>=8.3.1",
+    "joblib>=1.5.3",
+    "pandas>=2.3.3",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "sportsipy>=0.6.0",
+    "xgboost>=3.1.2",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.12.0",
+    "mypy>=1.19.1",
+    "ruff>=0.14.10",
+]
