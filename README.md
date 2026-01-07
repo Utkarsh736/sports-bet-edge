@@ -2,102 +2,91 @@
 
 [![Tests](https://github.com/Utkarsh736/sports-bet-edge/actions/workflows/test.yml/badge.svg)](https://github.com/Utkarsh736/sports-bet-edge/actions)
 
-A command-line tool that fetches live and historical sports data (**MLB/NBA** via `sportsipy`), runs **XGBoost** models to predict spreads and totals, compares them with bookmaker odds, and flags **+EV (expected value)** bets.
+A command-line tool that fetches live and historical sports data (**MLB/NBA** via `sportsipy`), runs **XGBoost** models to predict spreads and totals, compares predictions with bookmaker odds, and flags **+EV (expected value)** betting opportunities.
+
+This project is built as part of a **Boot.dev-style backend/CLI learning workflow**, focusing on data pipelines, modeling, and clean CLI design.
 
 ---
 
-## 🚀 Quick Demo
+## Motivation
+
+The goal of this project is to practice building a production-style CLI application that integrates:
+
+- External data sources (sports APIs)
+- Feature engineering pipelines
+- Machine learning models
+- Probabilistic decision-making (EV, Kelly Criterion)
+
+It is intended as a **learning project**, not a betting product, emphasizing software engineering fundamentals alongside applied ML.
+
+---
+
+## Quick Start
+
+Clone the repository:
 
 ```bash
-pip install -r requirements.txt
-python src/cli.py --mode live --league mlb --game_id 123456
-```
-Example output:
-
-```bash
-Bet: Yankees -1.5 | Pred Spread: -2.1 | Odds: -110 | EV: +4.2%
-```
-## 📊 Features
-Data fetch using sportsipy (MLB, NBA, NFL)
-
-Feature engineering:
-
-Rolling statistics
-
-Rest days
-
-Matchup history
-
-ML models:
-
-XGBoost for spreads, totals, and moneyline
-
-Expected value (EV) calculations:
-
-American and decimal odds
-
-Backtesting with Kelly Criterion
-
-Designed to be extensible (cricket, football, etc.)
-
-## 🛠 Install & Run
-```bash
-Copy code
 git clone https://github.com/Utkarsh736/sports-bet-edge
 cd sports-bet-edge
 ```
-Install dependencies:
-
+### Install dependencies:
 ```bash
-
 uv sync
 # OR
 pip install -r requirements.txt
 ```
-Run the CLI:
 
+### Verify the CLI:
+```
+python src/cli.py --help
+```
+## Usage
+
+Run the CLI in live or historical mode:
 ```bash
-uv run python src/cli.py --help
-Requirements
-Python 3.12+
-
-pandas
-
-sportsipy
-
-xgboost
-
-joblib
-
-click
+python src/cli.py --mode live --league mlb --game_id 123456
 ```
 
-## 📈 Backtest Results (MLB 2025)
-Strategy	ROI	Sharpe	Win %
-Spread	5.2%	1.12	54%
-Totals	3.8%	0.89	52%
 
-## ⚠️ Disclaimer
-This is an educational tool only.
-Gambling involves risk — use responsibly.
+Example output:
+```bash
+Bet: Yankees -1.5 | Pred Spread: -2.1 | Odds: -110 | EV: +4.2%
+```
 
-## 🚧 Roadmap
- MLB data fetcher
+## Supported features:
 
- NBA extension
+- Leagues: MLB (NBA planned)
 
- Live odds API integration
+- Models: XGBoost (spreads, totals, moneyline)
 
- Streamlit dashboard
+- Odds formats: American and decimal
 
-## ✏️ Lessons Learned
-- Blog series:
+- Backtesting with Kelly Criterion sizing
 
-    - Part 1: Data Fetch
+## Contributing
 
-## 🤝 Contributing
-Pull requests are welcome.
-Please see CONTRIBUTING.md for guidelines.
+Contributions are welcome and encouraged.
 
-## 📄 License
+Typical contribution ideas:
+
+- Improving feature engineering
+
+- Adding new leagues (NBA, NFL)
+
+- Integrating a live odds API
+
+- Improving backtesting and evaluation
+
+- Adding tests and documentation
+
+Please open an issue or submit a pull request.
+For larger changes, discuss the approach first.
+
+## Disclaimer
+
+This project is for educational purposes only.
+It is not financial advice. Gamble responsibly.
+
+## License
+
 MIT
